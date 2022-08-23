@@ -24,7 +24,7 @@ function App() {
       dispatch(uiActions.showNotification({
         status: 'pending',
         title: 'Sending...',
-        message: 'Sending cart data!'
+        message: 'Sending cart data!',
       }));
       const response = await fetch(
         'https://reduxfood-default-rtdb.firebaseio.com/cart.json',
@@ -67,10 +67,7 @@ function App() {
       {notification && <Notification
         status={notification.status}
         title={notification.title}
-        message={notification.message}
-
-      />
-      }
+        message={notification.message} />}
       <Layout>
         {showCart && <Cart />}
         <Products />

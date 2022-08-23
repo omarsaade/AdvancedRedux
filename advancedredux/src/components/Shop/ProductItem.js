@@ -8,8 +8,8 @@ const ProductItem = (props) => {
 
   const dispatch = useDispatch();
   const { title, price, description, id } = props;
-
-
+  // const cart = useSelector((state) => state.cart);
+  // console.log(cart); {items: Array(1), totalQuantity: 1}
   const addToCartHandler = () => {
     dispatch(cartActions.addItemToCart({
       id, title, price

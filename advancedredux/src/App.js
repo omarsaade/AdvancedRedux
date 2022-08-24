@@ -16,6 +16,13 @@ function App() {
     const notification = useSelector(state => state.ui.notification);
 
 
+    /* Thunks are the standard approach for writing 
+    async logic in Redux apps, and are commonly used 
+    for data fetching.However, they
+    can be used for a variety of tasks, and can contain 
+    both synchronous and asynchronous logic. */
+
+
     useEffect(() => {
         // preventing the data to be sent for the first time because PUT will re-initialize
         // the data in the firsebase  
@@ -23,6 +30,11 @@ function App() {
             isInitial = false;
             return;
         }
+        //  Thunk functions are not directly called by application code
+        //  .Instead, they are passed to store.dispatch():
+        //now this useEffect only dispatch one action and all that hard work,
+        // happens inside of our custom action creator function,in our Redux files.
+
         dispatch(sendCartData(cart));
 
     }, [cart, dispatch]);

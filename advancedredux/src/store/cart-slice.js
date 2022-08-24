@@ -27,7 +27,7 @@ const cartSlice = createSlice({
             }
         },
 
-
+        //removeItemFromCart hye action creator
         removeItemFromCart(state, action) {
             const id = action.payload;
             const existingItem = state.items.find(item => item.id === id);
@@ -47,13 +47,20 @@ const cartSlice = createSlice({
 // https://www.digitalocean.com/community/tutorials/redux-redux-thunk
 
 
+// Redux reducers must not contain side effects, but real applications require logic that has side effects.
+// Some of that may live inside components, but some may need to live outside the UI layer
+// .Thunks(and other Redux middleware) give us a place to put those side effects.
+
 
 //  sendCartData is the "thunk action creator"
+// Custom Action Creator
 export const sendCartData = (cart) => {
 
     //  arrow functions is the "thunk function"
     return async (dispatch) => {
-
+        // A thunk function may contain any arbitrary logic
+        // , sync or async, and can call dispatch or getState
+        //  at any time.
         dispatch(uiActions.showNotification({
             status: 'pending',
             title: 'Sending...',
@@ -70,7 +77,8 @@ export const sendCartData = (cart) => {
             if (!response.ok) { throw new Error("Sending Cart data failed"); }
         };
 
-
+        //try catch is used simply to handle any errors
+        // try/catch which is synchronous
 
         try {
             await sendRequest();

@@ -51,7 +51,7 @@ function App1() {
 
     };
 
-    //     I just want to make sure that we don't send the cart
+    //  I just want to make sure that we don't send the cart
     // when this runs for the first time.
     if (isInitial) { isInitial = false; return }
 

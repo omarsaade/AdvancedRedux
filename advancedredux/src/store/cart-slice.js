@@ -44,43 +44,42 @@ const cartSlice = createSlice({
     }
 });
 
+// https://www.digitalocean.com/community/tutorials/redux-redux-thunk
 
-//ACTION CREATOR
+
+
+//  sendCartData is the "thunk action creator"
 export const sendCartData = (cart) => {
+
+    //  arrow functions is the "thunk function"
     return async (dispatch) => {
+
         dispatch(uiActions.showNotification({
             status: 'pending',
             title: 'Sending...',
             message: 'Sending cart data!',
-        })
-        );
+        }));
+
 
         const sendRequest = async () => {
-            const response = await fetch(
-                'https://reduxfood-default-rtdb.firebaseio.com/cart.json',
-                {
-                    method: 'PUT',
-                    body: JSON.stringify(cart),
-                }
-            );
+            const response = await fetch('https://reduxfood-default-rtdb.firebaseio.com/cart.json', {
+                method: 'PUT',
+                body: JSON.stringify(cart)
+            })
 
-
-            if (!response.ok) {
-                throw new Error("Sending Cart data failed");
-            }
+            if (!response.ok) { throw new Error("Sending Cart data failed"); }
         };
+
 
 
         try {
             await sendRequest();
-
             dispatch(uiActions.showNotification({
                 status: 'success',
                 title: 'Success',
                 message: 'Sent cart data successfully!'
             }));
         } catch (error) {
-
             dispatch(uiActions.showNotification({
                 status: 'error',
                 title: 'Error!',

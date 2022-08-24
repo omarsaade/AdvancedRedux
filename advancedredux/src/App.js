@@ -17,6 +17,8 @@ function App() {
 
 
     useEffect(() => {
+        // preventing the data to be sent for the first time because PUT will re-initialize
+        // the data in the firsebase  
         if (isInitial) {
             isInitial = false;
             return;
@@ -26,7 +28,6 @@ function App() {
     }, [cart, dispatch]);
 
     //thunk: a function that delays an action until later
-
 
 
 

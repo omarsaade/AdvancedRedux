@@ -4,7 +4,7 @@ import Cart from './components/Cart/Cart';
 import Layout from './components/Layout/Layout';
 import Products from './components/Shop/Products';
 import Notification from './components/UI/Notification';
-import { sendCartData } from './store/cart-slice';
+import { sendCartData, fetchCartData } from './store/cart-actions';
 
 let isInitial = true;
 
@@ -24,6 +24,12 @@ function App() {
 
 
     useEffect(() => {
+
+
+        dispatch(fetchCartData());
+    }, [dispatch]);
+
+    useEffect(() => {
         // preventing the data to be sent for the first time because PUT will re-initialize
         // the data in the firsebase  
         if (isInitial) {
@@ -35,7 +41,10 @@ function App() {
         //now this useEffect only dispatch one action and all that hard work,
         // happens inside of our custom action creator function,in our Redux files.
 
-        dispatch(sendCartData(cart));
+        if (cart.changed) {
+            dispatch(sendCartData(cart));
+
+        }
 
     }, [cart, dispatch]);
 

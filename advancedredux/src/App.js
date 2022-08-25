@@ -6,7 +6,7 @@ import Products from './components/Shop/Products';
 import Notification from './components/UI/Notification';
 import { sendCartData, fetchCartData } from './store/cart-actions';
 
-let isInitial = true;
+// let isInitial = true;
 
 function App() {
 
@@ -25,17 +25,29 @@ function App() {
 
     useEffect(() => {
 
-
         dispatch(fetchCartData());
     }, [dispatch]);
 
+
     useEffect(() => {
         // preventing the data to be sent for the first time because PUT will re-initialize
-        // the data in the firsebase  
-        if (isInitial) {
-            isInitial = false;
-            return;
-        }
+        // the data in the firsebase 
+
+
+
+        // Since the changed property of the cart slice is initially set to
+        //  false and becomes true only after dispatching either
+        //   addItemToCart() or removeItemFromCart(), the condition 
+        //   if (cart.changed) (you can find it inside an useEffect in App.js)
+        //    does also the job of the isInitial variable, 
+        // we don't need this variable anymore.
+
+        /*        if (isInitial) {
+                    isInitial = false;
+                    return;
+                }
+        */
+
         //  Thunk functions are not directly called by application code
         //  .Instead, they are passed to store.dispatch():
         //now this useEffect only dispatch one action and all that hard work,

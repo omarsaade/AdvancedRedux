@@ -25,6 +25,11 @@ export const fetchCartData = () => {
             //     items: cartData.items || [],
             // }));
 
+            // dispatch(cartActions.replaceCart({
+            //     items: cartData?.items || [],
+            //     totalQuantity: cartData?.totalQuantity || 0,
+            // }));
+
             if (cartData) dispatch(cartActions.replaceCart({
                 totalQuantity: cartData.totalQuantity,
                 items: cartData.items || [],

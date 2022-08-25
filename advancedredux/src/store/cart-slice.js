@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
     name: 'cart',
+    // If a property doesn't have a value, the Firebase Database doesn't store that property.That means that an empty array is not stored in the database and thus not read back.
+    //  You'll have to re-create those properties yourself after you read the data back.
     initialState: {
         items: [],
         totalQuantity: 0,

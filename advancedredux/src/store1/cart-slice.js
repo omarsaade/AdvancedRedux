@@ -64,6 +64,9 @@ const cartSlice = createSlice({
 //he mishen el dispatch(cartActions.addItemCart);
 export const cartActions = cartSlice.actions;
 
+
+
+
 //he mishem el configurestore taba3 store/index.js
 export default cartSlice;
 

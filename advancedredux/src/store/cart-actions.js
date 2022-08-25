@@ -18,6 +18,8 @@ export const fetchCartData = () => {
         };
 
         try {
+            //await hon btedman ano ma yenzal 3a tene line ger lama te5las
+            // el await li 2abla li bi awal line 
             const cartData = await fetchData();
 
             // dispatch(cartActions.replaceCart({

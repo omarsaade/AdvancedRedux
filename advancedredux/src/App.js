@@ -4,7 +4,9 @@ import Cart from './components/Cart/Cart';
 import Layout from './components/Layout/Layout';
 import Products from './components/Shop/Products';
 import Notification from './components/UI/Notification';
-import { sendCartData, fetchCartData } from './store/cart-actions';
+// import { sendCartData, fetchCartData } from './store/cart-actions';
+import { sendCartData, fetchCartData } from './store1/cart-actions';
+
 
 // let isInitial = true;
 
@@ -15,7 +17,7 @@ function App() {
     const cart = useSelector(state => state.cart);
     const notification = useSelector(state => state.ui.notification);
 
-
+    //thunk: a function that delays an action until later
     /* Thunks are the standard approach for writing 
     async logic in Redux apps, and are commonly used 
     for data fetching.However, they
@@ -26,6 +28,7 @@ function App() {
     useEffect(() => {
 
         dispatch(fetchCartData());
+
     }, [dispatch]);
 
 
@@ -60,7 +63,7 @@ function App() {
 
     }, [cart, dispatch]);
 
-    //thunk: a function that delays an action until later
+
 
 
 

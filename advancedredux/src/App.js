@@ -17,6 +17,14 @@ function App() {
     const cart = useSelector(state => state.cart);
     const notification = useSelector(state => state.ui.notification);
 
+
+
+    // const showCart = useSelector(
+    //     (state) => {
+    //         return state.ui.cartIsVisible;
+    //     });
+
+
     //thunk: a function that delays an action until later
     /* Thunks are the standard approach for writing 
     async logic in Redux apps, and are commonly used 
@@ -26,7 +34,7 @@ function App() {
 
 
     useEffect(() => {
-
+        //dispatch action
         dispatch(fetchCartData());
 
     }, [dispatch]);

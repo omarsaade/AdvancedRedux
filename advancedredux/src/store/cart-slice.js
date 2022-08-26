@@ -59,6 +59,7 @@ const cartSlice = createSlice({
 //meth1 -he mishen el dispatch(cartActions.addItemCart);
 export const cartActions = cartSlice.actions;
 
+
 // meth2 destructuring mishen na3mul dispatch degre hik dispatch(addItemToCart());
 //export const {addItemToCart,removeItemFromCart,replaceCart} = cartSlice.actions;
 

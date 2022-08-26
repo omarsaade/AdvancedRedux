@@ -60,6 +60,7 @@ const cartSlice = createSlice({
 export const cartActions = cartSlice.actions;
 
 
+
 // meth2 destructuring mishen na3mul dispatch degre hik dispatch(addItemToCart());
 //export const {addItemToCart,removeItemFromCart,replaceCart} = cartSlice.actions;
 

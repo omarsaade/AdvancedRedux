@@ -50,7 +50,11 @@ const cartSlice = createSlice({
 
 
     }, extraReducers: {
+        // [x] used to listen to something
+        // [same as depenedency li bel useeffect]: ()=>{}
         [fetchCartData.fulfilled]: (state, action) => {
+            // state and action hene deyman tab3in el reducer li maktube fi el extrareducers
+            // console.log(action);
             state.totalQuantity = action.payload.totalQuantity;
             state.items = action.payload.items;
         }

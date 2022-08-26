@@ -12,8 +12,10 @@ export const fetchCartData = createAsyncThunk(
             totalQuantity: data?.totalQuantity || 0
         };
     }
+
 );
 
+// console.log(fetchCartData());
 export const sendCartData = createAsyncThunk(
     'cart/sendData',
     async (cart) => {

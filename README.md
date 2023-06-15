@@ -1,2 +1,2 @@
 # AdvancedRedux
-Reduc Toolkit - AsyncThunk - React Router V6
+Redux Toolkit - AsyncThunk - React Router V6 - Slice
